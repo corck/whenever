@@ -24,7 +24,7 @@ Capistrano::Configuration.instance(:must_exist).load do
     desc "Clear application's crontab entries using Whenever"
     task :clear_crontab, :roles => whenever_roles do
       next if find_servers_for_task(current_task).empty?
-      run "cd #{release_path} && #{whenever_command} #{whenever_clear_flags}"
+      run "cd #{current_path} && #{whenever_command} #{whenever_clear_flags}"
     end
   end
   
